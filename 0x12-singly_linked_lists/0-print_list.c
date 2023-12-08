@@ -1,27 +1,23 @@
-/*
- * File: 0-print_listint.c
- * Auth: Brennan D Baraban
- */
-
-#include "lists.h"
 #include <stdio.h>
+#include "sort.h"
 
 /**
- * print_listint - Prints all the elements of a listint_t list.
- * @h: A pointer to the head of the list_t list.
+ * print_list - Prints a list of integers
  *
- * Return: The number of nodes in the list_t list.
+ * @list: The list to be printed
  */
-size_t print_listint(const listint_t *h)
+void print_list(const listint_t *list)
 {
-	size_t nodes = 0;
+	int i;
 
-	while (h)
+	i = 0;
+	while (list)
 	{
-		nodes++;
-		printf("%d\n", h->n);
-		h = h->next;
+		if (i > 0)
+			printf(", ");
+		printf("%d", list->n);
+		++i;
+		list = list->next;
 	}
-
-	return (nodes);
+	printf("\n");
 }
